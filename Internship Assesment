@@ -1,0 +1,27 @@
+import pandas as pd
+#Q1: How many rows and columns are there in books.csv dataset?
+df.shape
+# How many books do not have an original title?
+books_without_original_title = df['original_title'].isnull().sum()
+
+print(f'The number of books without an original title is: {books_without_original_title}')
+
+# How many unique books are present in the dataset ?
+unique_books_count = df['title'].nunique()
+
+print(f'The number of unique books in the dataset is: {unique_books_count}')
+#Q4: What is the average rating of all the books in the dataset based on ‘average_rating’?
+
+
+average_rating = df['average_rating'].mean()
+
+print(f'The average rating of all the books in the dataset is: {average_rating:.9f}')
+#Q5: Find the number of books published in the year ‘2000’ based on the ‘original_publication_year’.
+
+books_2000 = df[df['original_publication_year'] == 2000]
+num_books_2000 = len(books_2000)
+
+print(f'The number of books published in the year 2000 is: {num_books_2000}')
+#Q6: Which book (title) has the maximum number of ratings based on ‘work_ratings_count’.
+max_ratings_book = df.loc[df['work_ratings_count'].idxmax()]['title']
+print(f'The book with the maximum number of ratings is: {max_ratings_book}')
